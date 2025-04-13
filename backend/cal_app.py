@@ -3,9 +3,12 @@ from flask_cors import CORS
 from backend.cal_schedulelogic import generate_schedule
 import os
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend")
 CORS(app)
+
+@app.route("/")
+def serve_index():
+    return send_from_directory(app.static_folder, "index.html")
 
 @app.route("/schedule", methods=["POST"])
 def schedule():
