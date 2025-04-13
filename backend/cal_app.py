@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from cal_schedulelogic import generate_schedule
+from backend.cal_schedulelogic import generate_schedule
 import os
 
 
