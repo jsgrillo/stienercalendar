@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weekly Planner</title>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="cal_app.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Weekly Planner 🗓️</h1>
+
+        <div class="input-container">
+            <input type="text" id="activity" placeholder="Enter activity name">
+            <select id="category">
+                <option value="Work">Work</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="number" id="duration" placeholder="Duration (hours)" min="0.5" step="0.5">
+            <button onclick="addActivity()">➕ Add</button>
+            <button onclick="removeActivity()">❌ Remove</button>
+        </div>        
+
+        <div class="activities-container">
+            <h2>Your Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-column activity-work-column">
+                    <h3>Work</h3>
+                    <ul id="work-list" class="list"></ul>
+                </div>
+                <div class="activity-column activity-exercise-column">
+                    <h3>Exercise</h3>
+                    <ul id="exercise-list" class="list"></ul>
+                </div>
+                <div class="activity-column activity-leisure-column">
+                    <h3>Leisure</h3>
+                    <ul id="leisure-list" class="list"></ul>
+                </div>
+                <div class="activity-column activity-other-column">
+                    <h3>Other</h3>
+                    <ul id="other-list" class="list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <button class="generate-btn" onclick="generateSchedule()">📅 Generate Schedule</button>
+        <button class="work-week-btn" onclick="addWorkWeek()">🗓️ Add Work Week</button>
+        <button class="reset-btn" onclick="resetSchedule()">🔄 Reset Schedule</button>
+
+        <h2>Stienkie's Schedule</h2>
+        <div class="calendar">
+            <div class="day-headers">
+                <div class="empty-header"></div>
+                <div class="day-header">Mandag</div>
+                <div class="day-header">Dinsdag</div>
+                <div class="day-header">Woensdag</div>
+                <div class="day-header">Donderdag</div>
+                <div class="day-header">Vrijdag</div>
+                <div class="day-header">Zaterdag</div>
+                <div class="day-header">Zondag</div>
+            </div>
+            <div class="hour-column">
+                <div class="hour">8:00</div>
+                <div class="hour">9:00</div>
+                <div class="hour">10:00</div>
+                <div class="hour">11:00</div>
+                <div class="hour">12:00</div>
+                <div class="hour">13:00</div>
+                <div class="hour">14:00</div>
+                <div class="hour">15:00</div>
+                <div class="hour">16:00</div>
+                <div class="hour">17:00</div>
+                <div class="hour">18:00</div>
+                <div class="hour">19:00</div>
+                <div class="hour">20:00</div>
+            </div>
+            <div class="day-column" id="Monday"></div>
+            <div class="day-column" id="Tuesday"></div>
+            <div class="day-column" id="Wednesday"></div>
+            <div class="day-column" id="Thursday"></div>
+            <div class="day-column" id="Friday"></div>
+            <div class="day-column" id="Saturday"></div>
+            <div class="day-column" id="Sunday"></div>
+        </div>
+
+        <div class="calendar">
+            <div class="day-headers">
+                <div class="day-header">---------
+                    Stien:
+                    ---------
+                    Jake:
+                    ---------
+                </div>
+
+                <!-- <div class="dropdown">
+                    <select id="Stien1">
+                        <option value="Jake">Stien:</option>
+                    </select> 
+                    <select id="Jake1">
+                        <option value="Jake">Jake:</option>
+                    </select>
+                </div> -->
+                <div class="dropdown">
+                    <select id="Stien2">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake2">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <select id="Stien3">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake3">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>              
+                <div class="dropdown">
+                    <select id="Stien4">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake4">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>                
+                <div class="dropdown">
+                    <select id="Stien5">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake5">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>                
+                <div class="dropdown">
+                    <select id="Stien6">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake6">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>                
+                <div class="dropdown">
+                    <select id="Stien7">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake7">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>                
+                <div class="dropdown">
+                    <select id="Stien">
+                        <option value="Stiens">Apartje</option>
+                        <option value="Jakes">Volmol</option>
+                        <option value="Abroad">Abroad</option>
+                    </select> 
+                    <select id="Jake">
+                        <option value="Jakes">Volmol</option>
+                        <option value="Stiens">Apartje</option>
+                        <option value="Abroad">Abroad</option>
+                    </select>
+                </div>            
+            </div>
+        </div>
+        <button id="export-btn">📤 Export as JPG</button>  
+    </div>
+</body>
+</html>

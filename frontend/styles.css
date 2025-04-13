@@ -1,0 +1,223 @@
+body { /* Set body styles */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #9afdff, #1a829a);
+    color: #020028; /* text color */
+    text-align: center;
+    padding: 20px;
+}
+.container { /* Set container styles */
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+h1, h2 { /* Set heading styles */
+    color: #180cbb;
+}
+.input-container { /* Set first input container styles for activity names and such */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px; /* Add gap between elements */
+}
+
+input, select { /* Set first input and select styles */
+    padding: 10px;
+    width: auto; /* Adjust width to fit content */
+    border: 2px solid #546174;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 0; /* Remove right margin */
+}
+
+button { /* Set button styles */
+    padding: 10px 15px;
+    background: #3d4991;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 10px; /* Add margin to separate buttons */
+}
+button:hover { /* Set button hover styles */
+    background: #3d4991;
+}
+.activities-container { /* Set activities container styles */
+    background: #f6f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.activities-container h2 { /* Set activities container heading styles */
+    color: #180cbb;
+    font-size: 1.5rem; /* Adjust the size as needed */
+}
+.activity-column h3 { /* Set activity column heading styles */
+    color: #180cbb;
+}
+.activities-grid { /* Set activities grid styles */
+    display: flex;
+    justify-content: space-between;
+}
+.activity-column { /* Set activity column styles */
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.activity-work { /* Set activity color for Work */
+    background: #3d4991; /* Example color for Work */
+}
+.activity-work-column { /* Set activity column color for Work */
+    background: #e0e7ff;
+    border-left: 5px solid #3d4991;
+}
+.activity-exercise { /* Set activity color for Exercise */
+    background: #28a745; /* Example color for Exercise */
+}
+.activity-exercise-column { /* Set activity column color for Exercise */
+    background: #e6ffe6;
+    border-left: 5px solid #28a745;
+}
+.activity-leisure { /* Set activity color for Leisure */
+    background: #9d7602; /* Example color for Leisure */
+}
+.activity-leisure-column { /* Set activity column color for Leisure */
+    background: #fff5e6;
+    border-left: 5px solid #9d7602;
+}
+.activity-other { /* Set activity color for Other */
+    background: #d33636; /* Example color for Other */
+}
+.activity-other-column { /* Set activity column color for Other */
+    background: hsl(0, 100%, 95%);
+    border-left: 5px solid #d33636;
+}
+.list { /* Set list styles */
+    list-style-type: none;
+    padding: 0;
+}
+.list li { /* Set list item styles */
+    background: #3d4991;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.calendar { /* Set calendar styles */
+    display: grid;
+    grid-template-columns: 50px repeat(7, 1fr);
+    gap: 5px;
+    margin-left: 10px; /* Add margin to start the calendar farther to the left */
+}
+.day-headers { /* Set day headers styles */
+    display: contents; /* Use contents to ensure headers align with columns */
+}
+.empty-header { /* Set empty header styles */
+    grid-column: span 1;
+}
+.day-header { /* Set day header styles */
+    text-align: center;
+    font-weight: bold;
+    color: #3d4991;
+}
+.hour-column { /* Set hour column styles */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+.hour { /* Set hour styles */
+    height: 50px;
+    border-bottom: 1px solid #1e30a8;
+}
+.day-column { /* Set day column styles */
+    background: #f6f2f2;
+    color: #3d4991;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.activity-block { /* Set activity block styles */
+    color: white;
+    padding: 0px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px rgba(138, 178, 218, 0.742);
+    position: absolute;
+    width: calc(100% - 30px);
+    cursor: move; /* Add cursor move to indicate draggable */
+    resize: vertical; /* Allow vertical resizing */
+    overflow: auto;
+    z-index: 10; /* Ensure activity blocks are on top */
+}
+
+.sleeping-arrangement {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.sleeping-arrangement h3 {
+    color: #3d4991;
+    margin-bottom: 15px;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #3d4991;
+}
+
+.dropdown select {
+    padding: 10px;
+    border: 2px solid #546174;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.dropdown select:hover {
+    border-color: #3d4991;
+}
+
+#export-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3d4991;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#export-btn:hover {
+    background-color: #2c387e;
+}
